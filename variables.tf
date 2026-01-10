@@ -41,41 +41,6 @@ variable "vsphere_datacenter" {
   default="sa-wld01-DC"
 }
 
-variable "vm_name_prefix" {
-  type        = string
-  description = "Name of VM prefix"
-  default     = "my-vm"
-}
-
-variable "vm_count" {
-  type        = number
-  description = "Number of VMs to create"
-  default     = 1
-}
-
-variable "vm_datastore" {
-  type        = string
-  description = "Datastore used for the vSphere virtual machines"
-  default = "sa-wld01-cl01-vsan01"
-}
-
-variable "vm_network" {
-  type        = string
-  description = "Network used for the vSphere virtual machines"
-  default= "sa-wld01-cl01-vds-01-pg-mgmt"
-}
-
-variable "vm_template" {
-  type        = string
-  description = "Name of the template available in the vSphere"
-  default ="photon-ova"
-}
-
-variable "resource_pool" {
-  type        = string
-  description = "Resource pool to deploy the VMs into"
-  default = "sa-wld01-cl01/Terraform Resource Pool"
-}
 variable "supervisor_name" {
   type        = string
   description = ""
@@ -95,6 +60,14 @@ variable "vcenter_storage_policy_names" {
   type        = set(string)
   description = "vCenter storage profiles"
   default = ["sa-wld01-cl01 vSAN Storage Policy"]
+}
+variable "tier0_gw_name" {
+  type = string
+  default = "sa-wld01-t0-01"
+}
+variable "wld_edge_cluster"{
+  type = string
+  default= "sa-wld01-cl01"
 }
 
 
